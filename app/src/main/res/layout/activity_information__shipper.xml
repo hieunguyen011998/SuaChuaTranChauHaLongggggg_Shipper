@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/ActivityInformationShipper_txtName"
+        android:text="Họ tên : "
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/ActivityInformationShipper_txtSex"
+        android:text="Giới tính : "
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/ActivityInformationShipper_txtBirthOfDay"
+        android:text="Ngày sinh : "
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/ActivityInformationShipper_txtAddress"
+        android:text="Địa chỉ : "
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/ActivityInformationShipper_txtPhone"
+        android:text="Số điện thoại : "
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+</LinearLayout>
