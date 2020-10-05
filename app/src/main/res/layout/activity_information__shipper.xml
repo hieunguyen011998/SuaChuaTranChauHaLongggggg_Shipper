@@ -4,6 +4,10 @@
     android:orientation="vertical"
     android:weightSum="10"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ImageView>
     <TextView
         android:id="@+id/ActivityInformationShipper_txtName"
         android:text="Họ tên : "

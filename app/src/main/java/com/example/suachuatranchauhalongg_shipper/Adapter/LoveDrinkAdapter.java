@@ -16,40 +16,40 @@ import com.example.suachuatranchauhalongg_shipper.R;
 
 import java.util.List;
 
-public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.ViewHolder> {
-    List<Order> listOrder ;
-    Context context;
-    public DetailOrderAdapter(List<Order> listOrder,Context context)
-    {
-        this.listOrder = listOrder;
+public class LoveDrinkAdapter extends RecyclerView.Adapter<LoveDrinkAdapter.ViewHolder> {
+    private List<Drink> listDrink;
+    private Context context;
+    public LoveDrinkAdapter(List<Drink> listDrink,Context context ) {
+        this.listDrink = listDrink;
         this.context = context;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_orderdetail,parent,false);
-        return new DetailOrderAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_lovedrink,parent,false);
+        return new LoveDrinkAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Order order = listOrder.get(position);
+
     }
 
     @Override
     public int getItemCount() {
-        return listOrder.size();
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgDrink;
-        TextView txtPriceDrink,txtNameDrink,txtMountDrink;
+        ImageView imgDrink,imgDelete;
+        TextView txtNameDrink,txtPriceDrink;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgDrink = (ImageView) itemView.findViewById(R.id.itemOrderDetail_imgOrder);
-            txtNameDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtNameDrink);
-            txtPriceDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtPriceDrink);
-            txtMountDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtMountDrink);
+            imgDelete = (ImageView) itemView.findViewById(R.id.itemLoveDrink_imgDelete);
+            imgDrink = (ImageView) itemView.findViewById(R.id.itemLoveDrink_imgDrink);
+            txtNameDrink = (TextView) itemView.findViewById(R.id.itemLoveDrink_txtNameDrink);
+            txtPriceDrink = (TextView) itemView.findViewById(R.id.itemLoveDrink_txtPriceDink);
+
         }
     }
 }

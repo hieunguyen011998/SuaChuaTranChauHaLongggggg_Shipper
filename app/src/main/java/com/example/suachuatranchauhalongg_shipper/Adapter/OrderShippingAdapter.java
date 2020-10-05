@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,16 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = listOrder.get(position);
+        holder.txtMaOrder.setText(order.getMaOrder());
+        holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
+        if(order.getStatus()==1)
+        {
+           // holder.frameStatus.setBackgroundColor(R.);
+        }
+        else if(order.getStatus()==2)
+        {
+           // holder.frameStatus.setBackgroundColor();
+        }
 
     }
 
@@ -42,14 +53,14 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgDrinkInOrder,imgStatus;
+        ImageView imgDrinkInOrder;
+        FrameLayout frameStatus;
         TextView txtMaOrder,txtNameDrinkInOrder,txtPriceInOrder;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDrinkInOrder = (ImageView) itemView.findViewById(R.id.item_ordershipping_imageOder);
-            imgStatus = (ImageView) itemView.findViewById(R.id.item_ordershipping_imgStatus);
+            frameStatus = (FrameLayout) itemView.findViewById(R.id.item_ordershipping_frameStatus);
             txtMaOrder = (TextView) itemView.findViewById(R.id.item_ordershipping_txtIDOrder);
-            txtNameDrinkInOrder = (TextView) itemView.findViewById(R.id.item_ordershipping_txtNameOrder);
             txtPriceInOrder = (TextView) itemView.findViewById(R.id.item_ordershipping_txtPriceOrder);
         }
     }

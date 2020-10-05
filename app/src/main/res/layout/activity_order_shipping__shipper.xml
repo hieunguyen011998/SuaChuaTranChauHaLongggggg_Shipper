@@ -13,9 +13,53 @@
         android:layout_marginTop="20dp"
         android:layout_height="0dp">
     </TextView>
+ <RelativeLayout
+     android:layout_weight="1"
+     android:layout_margin="10dp"
+     android:layout_width="match_parent"
+     android:layout_height="0dp">
+     <TextView
+         android:id="@+id/txtLabelDaXacNhan"
+         android:text="Đã xác nhận : "
+         android:textSize="15sp"
+         android:textColor="#030303"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+     </TextView>
+     <FrameLayout
+         android:id="@+id/frameDaXacNhan"
+         android:background="#2196F3"
+         android:layout_width="60dp"
+         android:layout_marginLeft="38dp"
+         android:layout_marginTop="10dp"
+         android:layout_toRightOf="@+id/txtLabelDaXacNhan"
+         android:layout_height="5dp">
+     </FrameLayout>
+     <TextView
+         android:id="@+id/txtLabelDangchuanbido"
+         android:text="Đang chuẩn bị đồ : "
+         android:textSize="15sp"
+         android:textColor="#030303"
+         android:layout_below="@+id/txtLabelDaXacNhan"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content">
+     </TextView>
+     <FrameLayout
+         android:id="@+id/frameDangchuanbido"
+         android:background="#F1960F"
+         android:layout_marginTop="15dp"
+         android:layout_marginLeft="5dp"
+         android:layout_toRightOf="@+id/txtLabelDangchuanbido"
+         android:layout_below="@+id/frameDaXacNhan"
+         android:layout_width="60dp"
+         android:layout_height="5dp">
+     </FrameLayout>
+ </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ActivityShippingShipper_recycleViewOrder"
-        android:layout_weight="9"
+        android:layout_weight="8"
+        android:scrollbars="vertical"
+        android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp">
     </androidx.recyclerview.widget.RecyclerView>

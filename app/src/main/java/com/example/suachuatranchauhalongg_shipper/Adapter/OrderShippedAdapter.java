@@ -4,36 +4,47 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.suachuatranchauhalongg_shipper.Object.Drink;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.R;
 
 import java.util.List;
 
-public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.ViewHolder> {
-    List<Order> listOrder ;
-    Context context;
-    public DetailOrderAdapter(List<Order> listOrder,Context context)
-    {
+public class OrderShippedAdapter extends RecyclerView.Adapter<OrderShippedAdapter.ViewHolder> {
+    private List<Order> listOrder;
+    private Context context;
+    public OrderShippedAdapter(List<Order> listOrder,Context context ) {
         this.listOrder = listOrder;
         this.context = context;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_orderdetail,parent,false);
-        return new DetailOrderAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_ordershipped,parent,false);
+        return new OrderShippedAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = listOrder.get(position);
+        holder.txtMaOrder.setText(order.getMaOrder());
+        holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
+        if(order.getStatus()==1)
+        {
+            // holder.frameStatus.setBackgroundColor(R.);
+        }
+        else if(order.getStatus()==2)
+        {
+            // holder.frameStatus.setBackgroundColor();
+        }
+
     }
 
     @Override
@@ -42,14 +53,11 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgDrink;
-        TextView txtPriceDrink,txtNameDrink,txtMountDrink;
+        TextView txtMaOrder,txtPriceInOrder;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgDrink = (ImageView) itemView.findViewById(R.id.itemOrderDetail_imgOrder);
-            txtNameDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtNameDrink);
-            txtPriceDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtPriceDrink);
-            txtMountDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtMountDrink);
+            txtMaOrder = (TextView) itemView.findViewById(R.id.item_ordershipped_txtIDOrder);
+            txtPriceInOrder = (TextView) itemView.findViewById(R.id.item_ordershipped_txtPriceOrder);
         }
     }
 }
