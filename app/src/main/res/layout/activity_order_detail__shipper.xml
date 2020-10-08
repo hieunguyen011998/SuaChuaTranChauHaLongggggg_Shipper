@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
     <TextView
-        android:id="@+id/ActivityOrderDetail_txtMaOrder"
+        android:id="@+id/ActivityOrderDetailShipper_txtMaOrder"
         android:text="Mã đơn hàng : "
         android:textSize="20sp"
         android:textColor="#021A91"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content">
     </TextView>
         <TextView
-            android:id="@+id/id"
+            android:id="@+id/ActivityOrderDetailShipper_txtBill"
             android:text="Chưa thanh toán"
             android:textSize="15sp"
             android:gravity="right"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
-            android:id="@+id/ActivityOrderDetail_txtNameOrder"
+            android:id="@+id/ActivityOrderDetailShipper_txtTittleCustomer"
             android:text="Thông tin khách hàng"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content">
         </TextView>
         <TextView
-            android:id="@+id/ActivityOrderDetail_txtMountOrder"
+            android:id="@+id/ActivityOrderDetailShipper_txtNameCustomer"
             android:text="Họ tên : Nguyễn Văn Hiếu"
             android:textSize="20sp"
             android:layout_marginTop="5dp"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/ActivityInformationShipper_txtPriceDrink"
+                android:id="@+id/ActivityOrderDetailShipper_txtPhoneCustomer"
                 android:text="Số điện thoại : 0967508481"
                 android:textSize="20sp"
                 android:textColor="#000000"
@@ -71,6 +71,7 @@
             </TextView>
             <ImageView
                 android:src="@drawable/ic_call_black_24dp"
+                android:id="@+id/ActivityOrderDetailShipper_imgCallPhone"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
@@ -78,6 +79,7 @@
             </ImageView>
             <ImageView
                 android:src="@drawable/ic_message_black_24dp"
+                android:id="@+id/ActivityOrderDetailShipper_imgMessage"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
@@ -85,7 +87,7 @@
             </ImageView>
         </LinearLayout>
         <TextView
-            android:id="@+id/ActivityInformationShipper_txtPhone"
+            android:id="@+id/ActivityOrderDetailShipper_txtAddress"
             android:text="Địa chỉ : KĐT Pháp Vân - Tứ Hiệp"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
@@ -102,6 +104,7 @@
         android:layout_height="0dp">
         <TextView
             android:text="Thông tin sản phẩm"
+            android:id="@+id/ActivityOrderDetailShipper_txtTittleInfoDrink"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -109,6 +112,7 @@
             android:layout_height="wrap_content">
         </TextView>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ActivityOrderDetailShipper_recyclerDrink"
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
@@ -122,6 +126,7 @@
         android:layout_height="0dp">
         <TextView
             android:textSize="20sp"
+            android:id="@+id/ActivityOrderDetailShipper_txtTittleBillTotal"
             android:textStyle="bold"
             android:textColor="#000000"
             android:text="Tổng thanh toán"
@@ -130,6 +135,7 @@
         </TextView>
         <TextView
             android:text="Thanh toán :"
+            android:id="@+id/ActivityOrderDetailShipper_txtThanhToan"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -137,6 +143,7 @@
         </TextView>
         <TextView
             android:text="Khuyến mãi :"
+            android:id="@+id/ActivityOrderDetailShipper_txtKhuyenMai"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -144,6 +151,7 @@
         </TextView>
         <TextView
             android:text="Phí vận chuyển :"
+            android:id="@+id/ActivityOrderDetailShipper_txtPhiVanChuyen"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -151,6 +159,7 @@
         </TextView>
         <TextView
             android:text="Tổng thanh toán :"
+            android:id="@+id/ActivityOrderDetailShipper_txtTongThanhToan"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
@@ -167,6 +176,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/ActivityOrderDetailShipper_btnNhanDonHang"
             android:background="#021A91"
             android:padding="10dp"
             android:layout_marginRight="10dp"

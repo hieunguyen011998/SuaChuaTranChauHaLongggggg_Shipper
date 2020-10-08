@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_weight="3.5"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    <TextView
+        android:id="@+id/DialogUpdateInfomationShipper_txtTittle"
+        android:text="Cập nhật thông tin "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlue"
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/DialogUpdateInfomationShipper_edtName"
+        android:hint="Name"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <EditText
+        android:id="@+id/DialogUpdateInfomationShipper_txtSex"
+        android:hint="Giới tính"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <EditText
+        android:id="@+id/DialogUpdateInfomationShipper_txtBirthOfDay"
+        android:hint="Ngày sinh"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <EditText
+        android:id="@+id/DialogUpdateInfomationShipper_txtPhone"
+        android:hint="Số điện thoại"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <EditText
+        android:id="@+id/DialogUpdateInfomationShipper_txtAddress"
+        android:hint="Địa chỉ"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:gravity="right">
+        <Button
+            android:id="@+id/id_DialogCapNhat_btnCapNhat"
+            android:text="Cập nhật"
+            android:textSize="13sp"
+            android:textAllCaps="false"
+            android:background="@drawable/custom_buttom_trangchu"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" />
+        <Button
+            android:id="@+id/id_DialogCapNhat_btnHuy"
+            android:text="Hủy"
+            android:textAllCaps="false"
+            android:background="@drawable/custom_buttom_trangchu"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginRight="20dp"
+            android:textSize="13sp"
+            android:layout_toRightOf="@+id/id_DialogCapNhat_btnCapNhat"/>
+    </RelativeLayout>
+</LinearLayout>
