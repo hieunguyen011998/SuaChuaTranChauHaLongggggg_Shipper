@@ -1,6 +1,7 @@
 package com.example.suachuatranchauhalongg_shipper.Presenter.SetInformationForUserCurrent;
 
 import android.graphics.Bitmap;
+import android.widget.ImageView;
 
 import com.example.suachuatranchauhalongg_shipper.Model.Login.ModelLoginShipper;
 import com.example.suachuatranchauhalongg_shipper.Model.Login.ModelResponeToPresenterListener;
@@ -18,24 +19,25 @@ public class PresenterSetInformationForUserCurrent implements ModelResponeToPres
         this.callback = callback;
     }
     //Lắng nghe được thông báo được gửi từ Activity
-    public void receivedHandleSetInformation(String email, String name, String phone, String address, String imgFace, Bitmap bitmap)
+    public void receivedHandleSetInformation(String email, String name, String phone, String getSexUserCurrent, String bienSoXe, String giayPhepLaiXe, String mauXe, String address, Bitmap bitmapFace, ImageView imgFace)
     {
         //Báo cho lớp Model biết shipper có click vào nút Login
-      //  modelSetInformationUserCurrent.handleSetInformation(email,name,phone,address,bitmap);
+        modelSetInformationUserCurrent.handleSetInformation(email,name,phone,getSexUserCurrent,bienSoXe,giayPhepLaiXe,mauXe,address,bitmapFace,imgFace);
     }
 
-    @Override
-    public void onLoginEmprty() {
-
-    }
 
     @Override
-    public void onLoginSuccess() {
+    public void onSetInformationUserRegisterEmprty() {
 
     }
 
     @Override
-    public void onLoginFaile() {
+    public void onSetInformationUserRegisterSuccess() {
+
+    }
+
+    @Override
+    public void onSetInformationUserRegisterFaile() {
 
     }
     //Nhận kết quả xử lý logic từ lớp Model rồi đẩy kết quả vào interface ViewLoginListener

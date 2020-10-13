@@ -1,99 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="4"
+    android:weightSum="10"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
-        android:layout_weight="1"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="350dp"
         android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="-40dp"
-        android:layout_weight="3">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ActivityInfomartionShipper_imgUserCurrent"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/backgroudshipper2" />
-
-        <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_weight="1.5">
+    </LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ActivityInformationShipper_imgUser"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-75dp"
+        android:src="@drawable/face"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="2">
+    </de.hdodenhof.circleimageview.CircleImageView>
+    <TextView
+        android:text="Nguyễn Văn Hiếu"
+        android:id="@+id/ActivityInformationShipper_txtNameUser"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="#0E0E0E"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_weight="0.6"
+        android:layout_height="0dp">
+    </TextView>
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-            android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        >
-
+        android:layout_height="0dp"
+        android:background="#082840"
+        android:layout_weight="6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
             <TextView
-                android:id="@+id/ActivityInfomartionShipper_txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="Họ tên : "
-                android:textColor="#077CDA"
-                android:textSize="20sp">
-            </TextView>
-        <TextView
-            android:id="@+id/ActivityInfomartionShipper_txtSex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ActivityInfomartionShipper_txtName"
-            android:layout_margin="5dp"
-            android:text="Giới tính : "
-            android:textColor="#077CDA"
-            android:textSize="20sp">
-
-        </TextView>
-            <TextView
-                android:id="@+id/ActivityInfomartionShipper_txtBirthOfDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ActivityInfomartionShipper_txtName"
-                android:layout_margin="5dp"
-                android:text="Ngày sinh : "
-                android:textColor="#077CDA"
-                android:textSize="20sp">
-
-            </TextView>
-            <TextView
-                android:id="@+id/ActivityInfomartionShipper_txtCallPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ActivityInfomartionShipper_txtName"
-                android:layout_margin="5dp"
-                android:text="Số điện thoại : "
-                android:textColor="#077CDA"
-                android:textSize="20sp">
-
-            </TextView>
-        <TextView
-            android:id="@+id/ActivityInfomartionShipper_txtAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ActivityInfomartionShipper_txtSex"
-            android:text="Địa chỉ : "
-            android:layout_margin="5dp"
-            android:textColor="#077CDA"
-            android:textSize="20sp">
-
-        </TextView>
-            <Button
-                android:id="@+id/ActivityInfomartionShipper_btnUpdate"
-                android:text="Cập nhật"
-                android:layout_marginTop="10dp"
-                android:textColor="#FAFAF7"
-                android:background="@drawable/custom_buttom_trangchu"
+                android:text="Nguyenvanhieu28011998@gmail.com"
+                android:textSize="20sp"
+                android:id="@+id/ActivityInformationShipper_txtEmail"
+                android:layout_margin="15dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFFFE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            </Button>
-    </LinearLayout>
-    </LinearLayout>
+            </TextView>
+            <FrameLayout
+                android:background="#FAFAF5"
+                android:layout_width="match_parent"
+                android:layout_height="3dp">
+            </FrameLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgSex"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_baseline_assignment_ind_24"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtSex"
+                    android:layout_toRightOf="@+id/imgSex"
+                    android:textColor="#F6F6F1"
+                    android:text="Nam"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/imgSex"
+                    android:id="@+id/imgBirthOfDate"
+                    android:src="@drawable/ic_baseline_date_range_24"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+
+                    android:id="@+id/txtBirthOfDate"
+                    android:layout_below="@+id/txtSex"
+                    android:layout_toRightOf="@+id/imgSex"
+                    android:textColor="#F6F6F1"
+                    android:text="28/01/1998"
+                    android:layout_marginTop="30dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgBirthOfDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/imgBirthOfDate"
+                    android:id="@+id/imgPhone"
+                    android:src="@drawable/ic_baseline_local_phone_24"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_below="@+id/txtBirthOfDate"
+                    android:layout_toRightOf="@+id/imgPhone"
+                    android:textColor="#F6F6F1"
+                    android:text="0967508481"
+                    android:layout_marginTop="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:id="@+id/imgAddress"
+                    android:layout_below="@+id/imgPhone"
+                    android:src="@drawable/ic_baseline_add_location_24"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_below="@+id/txtPhone"
+                    android:layout_toRightOf="@+id/imgAddress"
+                    android:textColor="#F6F6F1"
+                    android:text="KĐT Pháp Vân - Tứ Hiệp"
+                    android:layout_marginTop="23dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:id="@+id/imgBienSoXe"
+                    android:layout_below="@+id/imgAddress"
+                    android:src="@drawable/ic_motorcycle_black_24dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtBienSoXe"
+                    android:layout_below="@+id/txtAddress"
+                    android:layout_toRightOf="@+id/imgBienSoXe"
+                    android:textColor="#F6F6F1"
+                    android:text="88 - K2 22222"
+                    android:layout_marginTop="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgBienSoXe"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:id="@+id/imgGiayPhepLaiXe"
+                    android:layout_below="@+id/imgBienSoXe"
+                    android:src="@drawable/ic_recent_actors_black_24dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtGiayPhepLaiXe"
+                    android:layout_below="@+id/txtBienSoXe"
+                    android:layout_toRightOf="@+id/imgGiayPhepLaiXe"
+                    android:textColor="#F6F6F1"
+                    android:text="KĐT Pháp Vân - Tứ Hiệp"
+                    android:layout_marginTop="23dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <FrameLayout
+                    android:background="#D6D6CB"
+                    android:layout_below="@+id/imgGiayPhepLaiXe"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </FrameLayout>
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:id="@+id/imgMauXe"
+                    android:layout_below="@+id/imgGiayPhepLaiXe"
+                    android:src="@drawable/ic_subtitles_black_24dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/txtMauXe"
+                    android:layout_below="@+id/txtGiayPhepLaiXe"
+                    android:layout_toRightOf="@+id/imgMauXe"
+                    android:textColor="#F6F6F1"
+                    android:text="KĐT Pháp Vân - Tứ Hiệp"
+                    android:layout_marginTop="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+<!--                <FrameLayout-->
+<!--                    android:background="#D6D6CB"-->
+<!--                    android:layout_below="@+id/imgMauXe"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp">-->
+<!--                </FrameLayout>-->
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+    <Button
+        android:id="@+id/ActivityCheckIn_btnCamera"
+        android:text="CẬP NHẬT"
+        android:background="@drawable/custome_button_checkin"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="280dp"
+        android:textSize="20sp"
+        android:textFontWeight="@android:integer/config_longAnimTime"
+        android:textColor="#F8F8F3"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="60dp">
+    </Button>
 </LinearLayout>

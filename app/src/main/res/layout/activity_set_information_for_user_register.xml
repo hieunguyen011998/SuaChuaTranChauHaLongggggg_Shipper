@@ -90,6 +90,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </EditText>
+        <EditText
+            android:id="@+id/ActivitySetInformationForUserRegister_edtBienSoXe"
+            android:hint="Nhập biển số xe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+        <EditText
+            android:id="@+id/ActivitySetInformationForUserRegister_edtGiayPhepLaiXe"
+            android:hint="Nhập giấy phép lái xe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+        <EditText
+            android:id="@+id/ActivitySetInformationForUserRegister_edtMauXe"
+            android:hint="Nhập màu xe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
         <Button
             android:id="@+id/ActivitySetInformationForUserRegister_btnUpdate"
             android:text="Cập nhật"
