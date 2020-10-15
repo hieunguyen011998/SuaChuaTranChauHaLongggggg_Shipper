@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.example.suachuatranchauhalongg_shipper.Model.Login.ModelResponeToPresenterListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -48,7 +49,7 @@ public class ModelSetInformationUserCurrent {
         }
         else
         {
-            setDataForUser(email,name,phone,getSexUserCurrent,bienSoXe,giayPhepLaiXe,mauXe,address,bitmapFace,imgFace);
+            //setDataForUser(email,name,phone,getSexUserCurrent,bienSoXe,giayPhepLaiXe,mauXe,address,bitmapFace,imgFace);
         }
     }
     private void setDataForUser(String email,String name,String phone,
@@ -92,29 +93,29 @@ public class ModelSetInformationUserCurrent {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
                 // ...
-                Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                Task<Uri> downloadUrl = taskSnapshot.getStorage().getDownloadUrl();
                 String photoURL = downloadUrl.toString();
                 Log.d("aa",downloadUrl.toString());
-                mb = new member(name,testAccountType,email,phone,address,userCurrentID,photoURL,status,"user");
-                databaseReference.child("DanhSachUser").child(user.getUid()).setValue(mb, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        if(databaseError == null)
-                        {
+         //       mb = new member(name,testAccountType,email,phone,address,userCurrentID,photoURL,status,"user");
+           //     databaseReference.child("DanhSachUser").child(user.getUid()).setValue(mb, new DatabaseReference.CompletionListener() {
+             //       @Override
+               //     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+         //               if(databaseError == null)
+                 //       {
 //                            Toast.makeText(CapNhatDangKiActivity.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
 //                            finish();
 //                            Intent intent = new Intent(CapNhatDangKiActivity.this,TrangChuActivity.class);
 //                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 //                            startActivity(intent);
                             //Toast.makeText(CapNhatDangKiActivity.this, "" + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
+                   //     }
+                     //   else
+                       // {
                             //Toast.makeText(CapNhatDangKiActivity.this, "Cập nhật không thành công !", Toast.LENGTH_SHORT).show();
-                        }
+                    //    }
 
-                    }
-                });
+                    //}
+                //});
             }
         });
     }

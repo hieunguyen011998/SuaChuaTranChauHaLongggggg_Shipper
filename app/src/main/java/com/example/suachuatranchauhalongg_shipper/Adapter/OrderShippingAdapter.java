@@ -1,16 +1,20 @@
 package com.example.suachuatranchauhalongg_shipper.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.suachuatranchauhalongg_shipper.Activity.ActivityOrderDetail_Shipper;
+import com.example.suachuatranchauhalongg_shipper.Activity.OrderShipping_Shipper;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.R;
 
@@ -30,20 +34,38 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
         View view = LayoutInflater.from(context).inflate(R.layout.item_ordershipping,parent,false);
         return new OrderShippingAdapter.ViewHolder(view);
     }
-
+    OrderShipping_Shipper orderShipping_shipper;
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Order order = listOrder.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
+        final Order order = listOrder.get(position);
         holder.txtMaOrder.setText(order.getMaOrder());
         holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
-        if(order.getStatus()==1)
+        if(order.getStatus()==2)
         {
-           // holder.frameStatus.setBackgroundColor(R.);
+            holder.frameStatusConfirmed.setVisibility(View.VISIBLE);
+            holder.frameStatusSetUpDrink.setVisibility(View.GONE);
         }
-        else if(order.getStatus()==2)
+        else if(order.getStatus()==3)
         {
-           // holder.frameStatus.setBackgroundColor();
+            holder.frameStatusConfirmed.setVisibility(View.GONE);
+            holder.frameStatusSetUpDrink.setVisibility(View.VISIBLE);
         }
+        else
+        {
+            holder.frameStatusConfirmed.setVisibility(View.GONE);
+            holder.frameStatusSetUpDrink.setVisibility(View.GONE);
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             //   orderShipping_shipper = new OrderShipping_Shipper();
+               // orderShipping_shipper.addOnClick("" + position);
+                Intent intent = new Intent(context, ActivityOrderDetail_Shipper.class);
+                intent.putExtra("IDBill",order.getMaOrder());
+                context.startActivity(intent);
+               // Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -54,12 +76,13 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgDrinkInOrder;
-        FrameLayout frameStatus;
+        FrameLayout frameStatusConfirmed,frameStatusSetUpDrink;
         TextView txtMaOrder,txtNameDrinkInOrder,txtPriceInOrder;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDrinkInOrder = (ImageView) itemView.findViewById(R.id.item_ordershipping_imageOder);
-            frameStatus = (FrameLayout) itemView.findViewById(R.id.item_ordershipping_frameStatus);
+            frameStatusConfirmed = (FrameLayout) itemView.findViewById(R.id.item_ordershipping_frameStatusConfirmed);
+            frameStatusSetUpDrink = (FrameLayout) itemView.findViewById(R.id.item_ordershipping_frameStatusSetUpDrink);
             txtMaOrder = (TextView) itemView.findViewById(R.id.item_ordershipping_txtIDOrder);
             txtPriceInOrder = (TextView) itemView.findViewById(R.id.item_ordershipping_txtPriceOrder);
         }

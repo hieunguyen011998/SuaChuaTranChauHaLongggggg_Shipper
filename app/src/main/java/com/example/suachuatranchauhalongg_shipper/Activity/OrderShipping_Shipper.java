@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.suachuatranchauhalongg_shipper.Adapter.OrderShippingAdapter;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
@@ -38,6 +39,10 @@ public class OrderShipping_Shipper extends AppCompatActivity {
             }
         });
     }
+//    public void addOnClick(String k)
+//    {
+//        Toast.makeText(this, "" + k , Toast.LENGTH_SHORT).show();
+//    }
     private void initData()
     {
         calen = Calendar.getInstance();
@@ -45,21 +50,21 @@ public class OrderShipping_Shipper extends AppCompatActivity {
         dateOrder = "" + simpleDateFormat.format(calen.getTime());
         arrayListOrder = new ArrayList<>();
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
                 35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
         arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,

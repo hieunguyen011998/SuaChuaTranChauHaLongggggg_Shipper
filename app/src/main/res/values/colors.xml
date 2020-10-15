@@ -6,4 +6,6 @@
     <color name="colorOrange">#FF5722</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorBillConfirmed">#2196F3</color>
+    <color name="colorSetupDrink">#F1960F</color>
 </resources>

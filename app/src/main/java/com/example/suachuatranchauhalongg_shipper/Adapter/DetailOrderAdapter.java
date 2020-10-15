@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.suachuatranchauhalongg_shipper.Object.Drink;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
+import com.example.suachuatranchauhalongg_shipper.Object.OrderDetail;
 import com.example.suachuatranchauhalongg_shipper.R;
 
 import java.util.List;
 
 public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.ViewHolder> {
-    List<Order> listOrder ;
+    List<OrderDetail> listOrderDetail ;
     Context context;
-    public DetailOrderAdapter(List<Order> listOrder,Context context)
+    public DetailOrderAdapter(List<OrderDetail> listOrderDetail,Context context)
     {
-        this.listOrder = listOrder;
+        this.listOrderDetail = listOrderDetail;
         this.context = context;
     }
     @NonNull
@@ -33,22 +34,28 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Order order = listOrder.get(position);
+        OrderDetail orderDetail = listOrderDetail.get(position);
+        holder.imgDrink.setImageResource(orderDetail.getImgUriDrink());
+        holder.txtNameDrink.setText(orderDetail.getNameDrink());
+        holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
+        int totalPrice = orderDetail.getPrice()* orderDetail.getMount();
+        holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
+
     }
 
     @Override
     public int getItemCount() {
-        return listOrder.size();
+        return listOrderDetail.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgDrink;
-        TextView txtPriceDrink,txtNameDrink,txtMountDrink;
+        TextView txtTotalPriceDrink,txtNameDrink,txtMountDrink;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgDrink = (ImageView) itemView.findViewById(R.id.itemOrderDetail_imgOrder);
             txtNameDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtNameDrink);
-            txtPriceDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtPriceDrink);
+            txtTotalPriceDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtTotalPriceDrink);
             txtMountDrink = (TextView) itemView.findViewById(R.id.itemOrderDetail_txtMountDrink);
         }
     }

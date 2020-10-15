@@ -2,44 +2,48 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:weightSum="11"
+    android:weightSum="12"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:layout_weight="0.5"
-        android:weightSum="5"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+<!--    <LinearLayout-->
+<!--        android:layout_weight="0.6"-->
+<!--        android:weightSum="5"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp">-->
     <TextView
         android:id="@+id/ActivityOrderDetailShipper_txtMaOrder"
         android:text="Mã đơn hàng : "
+        android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="#021A91"
         android:layout_margin="5dp"
-        android:layout_weight="3"
-        android:layout_width="0dp"
+        android:layout_weight="0.1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </TextView>
         <TextView
             android:id="@+id/ActivityOrderDetailShipper_txtBill"
             android:text="Chưa thanh toán"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="right"
-            android:textColor="#021A91"
-            android:layout_margin="5dp"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:textColor="#F1960F"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp">
         </TextView>
-    </LinearLayout>
     <LinearLayout
         android:layout_weight="2.5"
         android:orientation="vertical"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
             android:id="@+id/ActivityOrderDetailShipper_txtTittleCustomer"
             android:text="Thông tin khách hàng"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
             android:textColor="#000000"
@@ -49,7 +53,7 @@
         <TextView
             android:id="@+id/ActivityOrderDetailShipper_txtNameCustomer"
             android:text="Họ tên : Nguyễn Văn Hiếu"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:textColor="#000000"
@@ -64,7 +68,7 @@
             <TextView
                 android:id="@+id/ActivityOrderDetailShipper_txtPhoneCustomer"
                 android:text="Số điện thoại : 0967508481"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="#000000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -74,7 +78,6 @@
                 android:id="@+id/ActivityOrderDetailShipper_imgCallPhone"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content">
             </ImageView>
             <ImageView
@@ -82,14 +85,13 @@
                 android:id="@+id/ActivityOrderDetailShipper_imgMessage"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content">
             </ImageView>
         </LinearLayout>
         <TextView
             android:id="@+id/ActivityOrderDetailShipper_txtAddress"
             android:text="Địa chỉ : KĐT Pháp Vân - Tứ Hiệp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
@@ -98,26 +100,33 @@
         </TextView>
     </LinearLayout>
     <LinearLayout
-        android:layout_weight="4"
+        android:layout_weight="5"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
             android:text="Thông tin sản phẩm"
             android:id="@+id/ActivityOrderDetailShipper_txtTittleInfoDrink"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_margin="5dp"
             android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ActivityOrderDetailShipper_recyclerDrink"
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ActivityOrderDetailShipper_recyclerDrink"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -125,9 +134,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:id="@+id/ActivityOrderDetailShipper_txtTittleBillTotal"
             android:textStyle="bold"
+            android:layout_margin="5dp"
             android:textColor="#000000"
             android:text="Tổng thanh toán"
             android:layout_width="wrap_content"
@@ -137,6 +147,7 @@
             android:text="Thanh toán :"
             android:id="@+id/ActivityOrderDetailShipper_txtThanhToan"
             android:layout_marginTop="5dp"
+            android:textColor="#000000"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -146,6 +157,7 @@
             android:id="@+id/ActivityOrderDetailShipper_txtKhuyenMai"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -154,6 +166,7 @@
             android:id="@+id/ActivityOrderDetailShipper_txtPhiVanChuyen"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -161,6 +174,7 @@
             android:text="Tổng thanh toán :"
             android:id="@+id/ActivityOrderDetailShipper_txtTongThanhToan"
             android:layout_marginLeft="10dp"
+            android:textColor="#000000"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -171,6 +185,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="right">
 
         <Button
