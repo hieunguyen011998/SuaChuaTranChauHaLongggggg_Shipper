@@ -13,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.suachuatranchauhalongg_shipper.R;
+import com.example.suachuatranchauhalongg_shipper.View.UpdateInformationShipper.ViewUpdateInformationListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ActivityInformation_Shipper extends AppCompatActivity {
+public class ActivityInformation_Shipper extends AppCompatActivity implements View.OnClickListener, ViewUpdateInformationListener {
     CircleImageView imgFaceShipperCurrent;
+    ImageView imgFolder,imgCamera;
     EditText edtPhone,edtAddress,edtNameCar,edtColorCar,edtLicensePlateCar,edtDrivingLicenseCar;
     TextView txtName,txtTottalBillShipped;
     RadioGroup rdgSex;
@@ -33,13 +35,11 @@ public class ActivityInformation_Shipper extends AppCompatActivity {
     }
 
     private void addEvents() {
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ActivityInformation_Shipper.this, "" + getSexShipper(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        btnUpdate.setOnClickListener(this);
+        imgFolder.setOnClickListener(this);
+        imgCamera.setOnClickListener(this);
     }
+
     String getSex = "";
     public String getSexShipper()
     {
@@ -61,8 +61,8 @@ public class ActivityInformation_Shipper extends AppCompatActivity {
             }
         });
         return getSex;
-
     }
+
     private void addControls() {
         imgFaceShipperCurrent = (CircleImageView) findViewById(R.id.ActivityInformationShipper_imgFace);
         txtName = (TextView) findViewById(R.id.ActivityInformationShipper_txtName);
@@ -77,5 +77,40 @@ public class ActivityInformation_Shipper extends AppCompatActivity {
         rdbGirl = (RadioButton) findViewById(R.id.ActivityInformationShipper_rdbGirl);
         rdbMen = (RadioButton) findViewById(R.id.ActivityInformationShipper_rdbMen);
         btnUpdate = (Button) findViewById(R.id.ActivityInformationShipper_btnUpdate);
+        imgCamera = (ImageView) findViewById(R.id.ActivityInformationShipper_imgCamera);
+        imgFolder = (ImageView) findViewById(R.id.ActivityInformationShipper_imgFolder);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.ActivityInformationShipper_btnUpdate :
+                break;
+            case R.id.ActivityInformationShipper_imgCamera :
+                break;
+            case R.id.ActivityInformationShipper_imgFolder :
+                break;
+        }
+    }
+
+    @Override
+    public void onUpdateInformationUserCurrentSuccess() {
+
+    }
+
+    @Override
+    public void onUpdateInformationUserCurrentFaile() {
+
+    }
+
+    @Override
+    public void onUpdateInformationUserCurrentEmrty() {
+
+    }
+
+    @Override
+    public void onUpdateInformationUserCurrentDataNoChange() {
+
     }
 }

@@ -8,12 +8,36 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ActivityInformationShipper_imgFace"
             android:layout_width="150dp"
             android:src="@color/colorPrimary"
             android:layout_height="150dp">
         </de.hdodenhof.circleimageview.CircleImageView>
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/ActivityInformationShipper_imgCamera"
+                    android:src="@drawable/ic_photo_camera_black_24dp"
+                    android:layout_width="25dp"
+                    android:layout_gravity="center"
+                    android:layout_height="20dp" />
+                <ImageView
+                    android:id="@+id/ActivityInformationShipper_imgFolder"
+                    android:src="@drawable/ic_folder_open_black_24dp"
+                    android:layout_width="20dp"
+                    android:layout_gravity="center"
+                    android:layout_height="20dp" />
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
