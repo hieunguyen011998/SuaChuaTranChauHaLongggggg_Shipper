@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.suachuatranchauhalongg_shipper.Object.Drink;
-import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.Object.OrderDetail;
 import com.example.suachuatranchauhalongg_shipper.R;
+import com.example.suachuatranchauhalongg_shipper.Object.ListenerIDOrder;
 
 import java.util.List;
 
-public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.ViewHolder> {
+public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.ViewHolder>  {
     List<OrderDetail> listOrderDetail ;
     Context context;
+    private ListenerIDOrder send ;
     public DetailOrderAdapter(List<OrderDetail> listOrderDetail,Context context)
     {
         this.listOrderDetail = listOrderDetail;
@@ -31,15 +31,16 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
         View view = LayoutInflater.from(context).inflate(R.layout.item_orderdetail,parent,false);
         return new DetailOrderAdapter.ViewHolder(view);
     }
-
+    String idBill;
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        send = new ListenerIDOrder();
         OrderDetail orderDetail = listOrderDetail.get(position);
-        holder.imgDrink.setImageResource(orderDetail.getImgUriDrink());
-        holder.txtNameDrink.setText(orderDetail.getNameDrink());
-        holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
-        int totalPrice = orderDetail.getPrice()* orderDetail.getMount();
-        holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
+      //  holder.imgDrink.setImageResource(orderDetail.getImgUriDrink());
+        holder.txtNameDrink.setText("Mã đơn hàng : "+ send.getIDOrder());
+        //holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
+      //  int totalPrice = orderDetail.getPrice()* orderDetail.getMount();
+       // holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
 
     }
 
@@ -47,6 +48,7 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
     public int getItemCount() {
         return listOrderDetail.size();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgDrink;

@@ -1,60 +1,44 @@
 package com.example.suachuatranchauhalongg_shipper.Object;
 
 public class OrderDetail {
-    private int idDrink;
-    private String maOrder;
-    private String nameDrink;
+    private String idOrderDetail;
+    private String idOrder;
+    private String idDrink;
     private int mount ;
-    private int imgUriDrink;
-    private int price;
+    public OrderDetail()
+    {
 
-    public OrderDetail(int idDrink, String maOrder, String nameDrink, int imgUriDrink, int price,int mount) {
+    }
+
+    public OrderDetail(String idOrderDetail, String idOrder, String idDrink, int mount) {
+        this.idOrderDetail = idOrderDetail;
+        this.idOrder = idOrder;
         this.idDrink = idDrink;
-        this.maOrder = maOrder;
-        this.nameDrink = nameDrink;
-        this.imgUriDrink = imgUriDrink;
-        this.price = price;
         this.mount = mount;
     }
 
-    public int getIdDrink() {
+    public String getIdOrderDetail() {
+        return idOrderDetail;
+    }
+
+    public void setIdOrderDetail(String idOrderDetail) {
+        this.idOrderDetail = idOrderDetail;
+    }
+
+    public String getIdOrder() {
+        return idOrder;
+    }
+
+    public void setIdOrder(String idOrder) {
+        this.idOrder = idOrder;
+    }
+
+    public String getIdDrink() {
         return idDrink;
     }
 
-    public void setIdDrink(int idDrink) {
+    public void setIdDrink(String idDrink) {
         this.idDrink = idDrink;
-    }
-
-    public String getMaOrder() {
-        return maOrder;
-    }
-
-    public void setMaOrder(String maOrder) {
-        this.maOrder = maOrder;
-    }
-
-    public String getNameDrink() {
-        return nameDrink;
-    }
-
-    public void setNameDrink(String nameDrink) {
-        this.nameDrink = nameDrink;
-    }
-
-    public int getImgUriDrink() {
-        return imgUriDrink;
-    }
-
-    public void setImgUriDrink(int imgUriDrink) {
-        this.imgUriDrink = imgUriDrink;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public int getMount() {

@@ -38,7 +38,7 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
         final Order order = listOrder.get(position);
-        holder.txtMaOrder.setText(order.getMaOrder());
+        holder.txtMaOrder.setText(order.getIdOrder());
         holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
         if(order.getStatus()==2)
         {
@@ -61,7 +61,7 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
              //   orderShipping_shipper = new OrderShipping_Shipper();
                // orderShipping_shipper.addOnClick("" + position);
                 Intent intent = new Intent(context, ActivityOrderDetail_Shipper.class);
-                intent.putExtra("IDBill",order.getMaOrder());
+                intent.putExtra("IDBill",order.getIdOrder());
                 context.startActivity(intent);
                // Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
             }

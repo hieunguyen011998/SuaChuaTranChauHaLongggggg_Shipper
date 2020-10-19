@@ -37,7 +37,7 @@ public class LoveDrinkAdapter extends RecyclerView.Adapter<LoveDrinkAdapter.View
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listDrink.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

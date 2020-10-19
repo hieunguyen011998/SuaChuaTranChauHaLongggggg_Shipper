@@ -49,38 +49,26 @@ public class OrderShipping_Shipper extends AppCompatActivity {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss dd/MM/yyyy");
         dateOrder = "" + simpleDateFormat.format(calen.getTime());
         arrayListOrder = new ArrayList<>();
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,2,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,3,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
-        arrayListOrder.add(new Order("DH01","Sữa chua xoài",R.drawable.backgroudshipper,2,
-                35000,dateOrder,1,"Nguyễn Văn Hiếu","0967508481","Pháp Vân - Tứ Hiệp"));
+        arrayListOrder.add(new Order("DH01","DR01","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH02","DR02","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH03","DR03","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH04","DR04","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH05","DR05","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH06","DR06","KH01",2,
+                35000,0,25000,95000,dateOrder,2,false));
+        arrayListOrder.add(new Order("DH07","DR07","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH08","DR08","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH09","DR09","KH01",2,
+                35000,0,25000,95000,dateOrder,2,true));
+        arrayListOrder.add(new Order("DH010","DR010","KH01",2,
+                35000,0,25000,95000,dateOrder,2,false));
         orderShippingAdapter = new OrderShippingAdapter(arrayListOrder,this);
         recyclerViewOrder.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
         recyclerViewOrder.setLayoutManager(new LinearLayoutManager(this));

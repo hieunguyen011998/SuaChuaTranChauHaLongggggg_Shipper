@@ -1,52 +1,61 @@
 package com.example.suachuatranchauhalongg_shipper.Object;
 
 public class Order {
-    private String maOrder;
-    private String nameDrink;
-    private int imgUriDrink;
+    private String idOrder;
+    private String idOrderDetail;
+    private String idCustomer;
     private int mount;
     private int price;
+    private int promotion;
+    private int priceShip;
+    private int totalPrice;
     private String dateOrder;
     private int status;
-    private String nameCustomer;
-    private String phoneCustomer;
-    private String addressCustomer;
+    private boolean statusThanhToan;
 
-    public Order(String maOrder, String nameDrink, int imgUriDrink,int mount, int price,String dateOrder, int status,String nameCustomer,String phoneCustomer,String addressCustomer) {
-        this.maOrder = maOrder;
-        this.nameDrink = nameDrink;
-        this.imgUriDrink = imgUriDrink;
+    public Order()
+    {
+
+    }
+
+    public Order(String idOrder, String idOrderDetail, String idCustomer,
+                 int mount, int price, int promotion, int priceShip,
+                 int totalPrice, String dateOrder, int status, boolean statusThanhToan) {
+        this.idOrder = idOrder;
+        this.idOrderDetail = idOrderDetail;
+        this.idCustomer = idCustomer;
         this.mount = mount;
         this.price = price;
+        this.promotion = promotion;
+        this.priceShip = priceShip;
+        this.totalPrice = totalPrice;
         this.dateOrder = dateOrder;
         this.status = status;
-        this.nameCustomer = nameCustomer;
-        this.phoneCustomer = phoneCustomer;
-        this.addressCustomer = addressCustomer;
+        this.statusThanhToan = statusThanhToan;
     }
 
-    public String getMaOrder() {
-        return maOrder;
+    public String getIdOrder() {
+        return idOrder;
     }
 
-    public void setMaOrder(String maOrder) {
-        this.maOrder = maOrder;
+    public void setIdOrder(String idOrder) {
+        this.idOrder = idOrder;
     }
 
-    public String getNameDrink() {
-        return nameDrink;
+    public String getIdOrderDetail() {
+        return idOrderDetail;
     }
 
-    public void setNameDrink(String nameDrink) {
-        this.nameDrink = nameDrink;
+    public void setIdOrderDetail(String idOrderDetail) {
+        this.idOrderDetail = idOrderDetail;
     }
 
-    public int getImgUriDrink() {
-        return imgUriDrink;
+    public String getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setImgUriDrink(int imgUriDrink) {
-        this.imgUriDrink = imgUriDrink;
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
     public int getMount() {
@@ -65,12 +74,28 @@ public class Order {
         this.price = price;
     }
 
-    public int getStatus() {
-        return status;
+    public int getPromotion() {
+        return promotion;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setPromotion(int promotion) {
+        this.promotion = promotion;
+    }
+
+    public int getPriceShip() {
+        return priceShip;
+    }
+
+    public void setPriceShip(int priceShip) {
+        this.priceShip = priceShip;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getDateOrder() {
@@ -81,27 +106,19 @@ public class Order {
         this.dateOrder = dateOrder;
     }
 
-    public String getNameCustomer() {
-        return nameCustomer;
+    public int getStatus() {
+        return status;
     }
 
-    public void setNameCustomer(String nameCustomer) {
-        this.nameCustomer = nameCustomer;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getPhoneCustomer() {
-        return phoneCustomer;
+    public boolean isStatusThanhToan() {
+        return statusThanhToan;
     }
 
-    public void setPhoneCustomer(String phoneCustomer) {
-        this.phoneCustomer = phoneCustomer;
-    }
-
-    public String getAddressCustomer() {
-        return addressCustomer;
-    }
-
-    public void setAddressCustomer(String addressCustomer) {
-        this.addressCustomer = addressCustomer;
+    public void setStatusThanhToan(boolean statusThanhToan) {
+        this.statusThanhToan = statusThanhToan;
     }
 }

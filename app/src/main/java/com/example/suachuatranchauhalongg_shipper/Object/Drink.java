@@ -5,14 +5,12 @@ public class Drink {
     private String nameDrink;
     private int imgUriDrink;
     private int price;
-    private int mount;
 
-    public Drink(int idDrink, String nameDrink, int imgUriDrink, int price, int mount) {
+    public Drink(int idDrink, String nameDrink, int imgUriDrink, int price) {
         this.idDrink = idDrink;
         this.nameDrink = nameDrink;
         this.imgUriDrink = imgUriDrink;
         this.price = price;
-        this.mount = mount;
     }
 
     public int getIdDrink() {
@@ -47,11 +45,4 @@ public class Drink {
         this.price = price;
     }
 
-    public int getMount() {
-        return mount;
-    }
-
-    public void setMount(int mount) {
-        this.mount = mount;
-    }
 }

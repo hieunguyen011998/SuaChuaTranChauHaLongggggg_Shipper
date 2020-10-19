@@ -34,7 +34,7 @@ public class OrderShippedAdapter extends RecyclerView.Adapter<OrderShippedAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = listOrder.get(position);
-        holder.txtMaOrder.setText(order.getMaOrder());
+        holder.txtMaOrder.setText(order.getIdOrder());
         holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
         if(order.getStatus()==1)
         {
