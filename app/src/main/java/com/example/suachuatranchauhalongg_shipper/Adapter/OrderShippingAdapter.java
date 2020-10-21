@@ -61,7 +61,8 @@ public class OrderShippingAdapter extends RecyclerView.Adapter<OrderShippingAdap
              //   orderShipping_shipper = new OrderShipping_Shipper();
                // orderShipping_shipper.addOnClick("" + position);
                 Intent intent = new Intent(context, ActivityOrderDetail_Shipper.class);
-                intent.putExtra("IDBill",order.getIdOrder());
+                intent.putExtra("IDOrderDetail",order.getIdOrderDetail());
+                intent.putExtra("IDOrder",order.getIdOrder());
                 context.startActivity(intent);
                // Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
             }

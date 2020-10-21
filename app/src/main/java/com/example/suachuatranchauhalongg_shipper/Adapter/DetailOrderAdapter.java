@@ -10,9 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.suachuatranchauhalongg_shipper.Object.Drink;
+import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.Object.OrderDetail;
 import com.example.suachuatranchauhalongg_shipper.R;
 import com.example.suachuatranchauhalongg_shipper.Object.ListenerIDOrder;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -20,6 +27,7 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
     List<OrderDetail> listOrderDetail ;
     Context context;
     private ListenerIDOrder send ;
+    DatabaseReference databaseReference;
     public DetailOrderAdapter(List<OrderDetail> listOrderDetail,Context context)
     {
         this.listOrderDetail = listOrderDetail;
@@ -32,18 +40,49 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
         return new DetailOrderAdapter.ViewHolder(view);
     }
     String idBill;
+    int mount;
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        initReference();
         send = new ListenerIDOrder();
-        OrderDetail orderDetail = listOrderDetail.get(position);
+        final OrderDetail orderDetail = listOrderDetail.get(position);
+        databaseReference.child("ListOrder").child(send.getIDOrder()).child(send.getIDOrderDetail()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                OrderDetail orderDetail1 = dataSnapshot.getValue(OrderDetail.class);
+                holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
+                mount = orderDetail1.getMount();
+                databaseReference.child("ListDrink").child(orderDetail1.getIdDrink()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Drink drink = dataSnapshot.getValue(Drink.class);
+                        holder.txtNameDrink.setText(drink.getNameDrink());
+                        holder.txtTotalPriceDrink.setText("Giá : "+ (mount * drink.getPrice()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
       //  holder.imgDrink.setImageResource(orderDetail.getImgUriDrink());
-        holder.txtNameDrink.setText("Mã đơn hàng : "+ send.getIDOrder());
+
         //holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
       //  int totalPrice = orderDetail.getPrice()* orderDetail.getMount();
        // holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
 
     }
-
+    private void initReference()
+    {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+    }
     @Override
     public int getItemCount() {
         return listOrderDetail.size();

@@ -58,8 +58,9 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity {
     {
         Intent intent = getIntent();
         ListenerIDOrder send  = new ListenerIDOrder();
-        send.setIDOrder(intent.getStringExtra("IDBill").toString());
-        Toast.makeText(this, "" + intent.getStringExtra("IDBill").toString(), Toast.LENGTH_SHORT).show();
+        send.setIDOrder(intent.getStringExtra("IDOrder").toString());
+        send.setIDOrderDetail(intent.getStringExtra("IDOrderDetail").toString());
+        Toast.makeText(this, "" + intent.getStringExtra("IDOrderDetail").toString(), Toast.LENGTH_SHORT).show();
        // sendID.idDrink(intent.getStringExtra("IDBill").toString()) ;
     }
 }

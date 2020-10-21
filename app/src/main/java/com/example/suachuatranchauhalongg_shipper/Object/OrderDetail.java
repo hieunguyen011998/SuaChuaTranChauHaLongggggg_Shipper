@@ -5,6 +5,7 @@ public class OrderDetail {
     private String idOrder;
     private String idDrink;
     private int mount ;
+   // private int priceTotal;
     public OrderDetail()
     {
 
@@ -48,4 +49,12 @@ public class OrderDetail {
     public void setMount(int mount) {
         this.mount = mount;
     }
+
+//    public int getPriceTotal() {
+//        return priceTotal;
+//    }
+//
+//    public void setPriceTotal(int priceTotal) {
+//        this.priceTotal = priceTotal;
+//    }
 }

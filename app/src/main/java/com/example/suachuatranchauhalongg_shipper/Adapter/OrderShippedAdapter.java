@@ -13,12 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
 public class OrderShippedAdapter extends RecyclerView.Adapter<OrderShippedAdapter.ViewHolder> {
     private List<Order> listOrder;
     private Context context;
+    FirebaseUser firebaseUser;
+    FirebaseAuth firebaseAuth;
+    DatabaseReference databaseReference;
     public OrderShippedAdapter(List<Order> listOrder,Context context ) {
         this.listOrder = listOrder;
         this.context = context;
@@ -33,20 +43,30 @@ public class OrderShippedAdapter extends RecyclerView.Adapter<OrderShippedAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        initReference();
         Order order = listOrder.get(position);
+        databaseReference.child(firebaseUser.getUid().toString()).child("ListOrderOfShipper").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         holder.txtMaOrder.setText(order.getIdOrder());
         holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
-        if(order.getStatus()==1)
-        {
-            // holder.frameStatus.setBackgroundColor(R.);
-        }
-        else if(order.getStatus()==2)
-        {
-            // holder.frameStatus.setBackgroundColor();
-        }
+
 
     }
-
+    private void initReference()
+    {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+    }
     @Override
     public int getItemCount() {
         return listOrder.size();

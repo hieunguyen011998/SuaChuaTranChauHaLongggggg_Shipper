@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.SetInformationForUserRegister"></activity>
+        <activity android:name=".HuongDanDoiDiemThuong"></activity>
+        <activity android:name=".Activity.SetInformationForUserRegister" />
         <activity android:name=".Activity.ActivityOrderDetail_Shipper" />
         <activity android:name=".Activity.Login_Shipper" />
-        <activity android:name= ".Activity.ActivityInformation_Shipper"/>
-        <activity android:name= ".Activity.ActivityMain_Shipper"/>
+        <activity android:name=".Activity.ActivityInformation_Shipper" />
+        <activity android:name=".Activity.ActivityMain_Shipper" />
         <activity android:name=".Activity.OrderShipped_Shipper" />
         <activity android:name=".Activity.Register_Shipper" />
         <activity android:name=".Activity.OrderShipping_Shipper">
