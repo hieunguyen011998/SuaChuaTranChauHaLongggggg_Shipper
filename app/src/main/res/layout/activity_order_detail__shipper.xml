@@ -89,7 +89,7 @@
             </ImageView>
         </LinearLayout>
         <TextView
-            android:id="@+id/ActivityOrderDetailShipper_txtAddress"
+            android:id="@+id/ActivityOrderDetailShipper_txtAddressCustomer"
             android:text="Địa chỉ : KĐT Pháp Vân - Tứ Hiệp"
             android:textSize="18sp"
             android:layout_marginLeft="10dp"
