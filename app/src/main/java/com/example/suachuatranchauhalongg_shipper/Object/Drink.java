@@ -3,10 +3,10 @@ package com.example.suachuatranchauhalongg_shipper.Object;
 public class Drink {
     private int idDrink;
     private String nameDrink;
-    private int imgUriDrink;
+    private String imgUriDrink;
     private int price;
 
-    public Drink(int idDrink, String nameDrink, int imgUriDrink, int price) {
+    public Drink(int idDrink, String nameDrink, String imgUriDrink, int price) {
         this.idDrink = idDrink;
         this.nameDrink = nameDrink;
         this.imgUriDrink = imgUriDrink;
@@ -29,11 +29,11 @@ public class Drink {
         this.nameDrink = nameDrink;
     }
 
-    public int getImgUriDrink() {
+    public String getImgUriDrink() {
         return imgUriDrink;
     }
 
-    public void setImgUriDrink(int imgUriDrink) {
+    public void setImgUriDrink(String imgUriDrink) {
         this.imgUriDrink = imgUriDrink;
     }
 

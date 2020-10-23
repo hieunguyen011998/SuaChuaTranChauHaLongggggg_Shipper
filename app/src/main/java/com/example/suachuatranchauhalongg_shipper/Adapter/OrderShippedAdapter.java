@@ -1,6 +1,7 @@
 package com.example.suachuatranchauhalongg_shipper.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.suachuatranchauhalongg_shipper.Activity.ActivityOrderDetail_Shipper;
+import com.example.suachuatranchauhalongg_shipper.Activity.ActivityOrderShippedDetail;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,20 +47,32 @@ public class OrderShippedAdapter extends RecyclerView.Adapter<OrderShippedAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         initReference();
-        Order order = listOrder.get(position);
-        databaseReference.child(firebaseUser.getUid().toString()).child("ListOrderOfShipper").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        final Order order = listOrder.get(position);
+//        databaseReference.child(firebaseUser.getUid().toString()).child("ListOrderOfShipper").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
         holder.txtMaOrder.setText(order.getIdOrder());
         holder.txtPriceInOrder.setText("Thanh toán : "+ order.getPrice());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //   orderShipping_shipper = new OrderShipping_Shipper();
+                // orderShipping_shipper.addOnClick("" + position);
+                Intent intent = new Intent(context, ActivityOrderShippedDetail.class);
+                intent.putExtra("IDOrderDetail",order.getIdOrderDetail());
+                intent.putExtra("IDOrder",order.getIdOrder());
+                context.startActivity(intent);
+                // Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

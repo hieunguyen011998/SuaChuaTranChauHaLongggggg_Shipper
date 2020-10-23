@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -56,6 +57,7 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         Drink drink = dataSnapshot.getValue(Drink.class);
+                        Picasso.with(context).load(drink.getImgUriDrink().toString()).into(holder.imgDrink);
                         holder.txtNameDrink.setText(drink.getNameDrink());
                         holder.txtTotalPriceDrink.setText("Giá : "+ (mount * drink.getPrice()));
                     }

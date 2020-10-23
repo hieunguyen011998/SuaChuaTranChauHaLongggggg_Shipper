@@ -33,13 +33,14 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
     RecyclerView recyclerViewDrinkOfOrderDetail;
     DetailOrderAdapter detailOrderAdapter;
     ArrayList<OrderDetail> orderDetailArrayList;
-    TextView txtIDBill,txtStatusThanhToan,txtName,txtPhone,txtAddress;
+    TextView txtIDBill,txtStatusThanhToan,txtName,txtPhone,txtAddress,txtThanhToan,txtPhiVanChuyen,txtKhuyenMai,txtTotalThanhToan;
     ImageView imgPhone,imgMessage;
     Button btnNhanDonHang;
     FirebaseUser firebaseUser;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     Intent intent,intentCallPhone,intentMessage;
+    String sđt = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
         initReferenceObject();
         sendDataForDetailOrderAdapter();
         addControls();
-        initData();
+        getAllDataInOrder();
         addEvents();
     }
     private void initReferenceObject()
@@ -57,24 +58,68 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
         firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         intent = getIntent();
     }
-    private void initData() {
-        orderDetailArrayList = new ArrayList<>();
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
-        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+    private void getListDrinkDetail(String idOrderDetail) {
+          orderDetailArrayList = new ArrayList<>();
+          databaseReference.child("ListOrder");
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
+//        orderDetailArrayList.add(new OrderDetail("DHDT01","DH01","DR01",2));
         detailOrderAdapter = new DetailOrderAdapter(orderDetailArrayList,this);
         recyclerViewDrinkOfOrderDetail.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
         recyclerViewDrinkOfOrderDetail.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewDrinkOfOrderDetail.setAdapter(detailOrderAdapter);
     }
+    private void getAllDataInOrder()
+    {
+        //Lấy ra thông tin đơn hàng
+        databaseReference.child("ListOrder").child(intent.getStringExtra("IDOrder").toString()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Order order = dataSnapshot.getValue(Order.class);
+                txtIDBill.setText(order.getIdOrder().toString());
+                txtThanhToan.setText("Thanh toán : " + order.getPrice());
+                txtKhuyenMai.setText("Khuyến mãi : " + order.getPromotion());
+                txtPhiVanChuyen.setText("Phí vận chuyển : " + order.getPriceShip());
+                txtThanhToan.setText("Tổng thanh toán : " + order.getTotalPrice());
+                //Lấy ra thông tin khách hàng của đơn hàng
+                databaseReference.child("ListCustomer").child(order.getIdCustomer().toString()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                databaseReference.child("ListOrder").child(intent.getStringExtra("IDOrder").toString()).child("ListOrderDetail").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                getListDrinkDetail(order.getIdOrderDetail().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
     private void addControls()
     {
         recyclerViewDrinkOfOrderDetail = (RecyclerView) findViewById(R.id.ActivityOrderDetailShipper_recyclerDrink);
@@ -86,6 +131,10 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
         imgPhone = (ImageView) findViewById(R.id.ActivityOrderDetailShipper_imgCallPhone);
         imgMessage = (ImageView) findViewById(R.id.ActivityOrderDetailShipper_imgMessage);
         btnNhanDonHang = (Button) findViewById(R.id.ActivityOrderDetailShipper_btnNhanDonHang);
+        txtThanhToan = (TextView) findViewById(R.id.ActivityOrderDetailShipper_txtThanhToan);
+        txtKhuyenMai = (TextView) findViewById(R.id.ActivityOrderDetailShipper_txtKhuyenMai);
+        txtPhiVanChuyen = (TextView) findViewById(R.id.ActivityOrderDetailShipper_txtPhiVanChuyen);
+        txtTotalThanhToan = (TextView) findViewById(R.id.ActivityOrderDetailShipper_txtTongThanhToan);
     }
     private void addEvents()
     {
@@ -104,10 +153,10 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
         switch (v.getId())
         {
             case R.id.ActivityOrderDetailShipper_imgCallPhone :
-                redirectActivityCallPhone(getPhoneCustomerInOrder());
+                redirectActivityCallPhone("0967508481");
                 break;
             case R.id.ActivityOrderDetailShipper_imgMessage :
-                redirectActivityMessage(getPhoneCustomerInOrder());
+                redirectActivityMessage("0967508481");
                 break;
             case R.id.ActivityOrderDetailShipper_btnNhanDonHang :
                 break;
@@ -130,32 +179,31 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
         startActivity(intentCallPhone);
     }
 
-    final String sđt = "";
-    private String getPhoneCustomerInOrder() {
-        databaseReference.child("ListOrder").child(intent.getStringExtra("IDOrder").toString()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Order order = dataSnapshot.getValue(Order.class);
-                databaseReference.child("ListCustomer").child(order.getIdCustomer().toString()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        return sđt;
-    }
+//    private String getPhoneCustomerInOrder() {
+//        databaseReference.child("ListOrder").child(intent.getStringExtra("IDOrder").toString()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Order order = dataSnapshot.getValue(Order.class);
+//                databaseReference.child("ListCustomer").child(order.getIdCustomer().toString()).addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//        return sđt;
+//    }
 
 }

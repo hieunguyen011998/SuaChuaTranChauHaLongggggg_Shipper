@@ -1,8 +1,10 @@
-package com.example.suachuatranchauhalongg_shipper;
+package com.example.suachuatranchauhalongg_shipper.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.suachuatranchauhalongg_shipper.R;
 
 public class HuongDanDoiDiemThuong extends AppCompatActivity {
 
