@@ -76,9 +76,9 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
         });
       //  holder.imgDrink.setImageResource(orderDetail.getImgUriDrink());
 
-        //holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
-      //  int totalPrice = orderDetail.getPrice()* orderDetail.getMount();
-       // holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
+        holder.txtMountDrink.setText("Số lượng : "+ orderDetail.getMount());
+        int totalPrice = orderDetail.getMount();
+        holder.txtTotalPriceDrink.setText("Giá : " + totalPrice);
 
     }
     private void initReference()

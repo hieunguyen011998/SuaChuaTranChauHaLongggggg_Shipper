@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ActivityOrderShippedDetail"></activity>
+        <activity android:name=".Activity.ActivityOrderOfCustomer"></activity>
+        <activity android:name=".Activity.ActivityOrderShippedDetail" />
         <activity android:name=".Activity.HuongDanDoiDiemThuong" />
         <activity android:name=".Activity.SetInformationForUserRegister" />
         <activity android:name=".Activity.ActivityOrderDetail_Shipper" />
