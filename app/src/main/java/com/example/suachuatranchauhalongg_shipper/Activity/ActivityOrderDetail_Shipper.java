@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.suachuatranchauhalongg_shipper.Adapter.DetailOrderAdapter;
 import com.example.suachuatranchauhalongg_shipper.Object.Order;
 import com.example.suachuatranchauhalongg_shipper.Object.OrderDetail;
+import com.example.suachuatranchauhalongg_shipper.Object.Shipper;
 import com.example.suachuatranchauhalongg_shipper.R;
 import com.example.suachuatranchauhalongg_shipper.Object.ListenerIDOrder;
 import com.google.firebase.auth.FirebaseAuth;
@@ -161,11 +162,34 @@ public class ActivityOrderDetail_Shipper extends AppCompatActivity implements Vi
                 redirectActivityMessage("0967508481");
                 break;
             case R.id.ActivityOrderDetailShipper_btnNhanDonHang :
-                Intent intent = new Intent(this,ActivityOrderOfCustomer.class);
-                startActivity(intent);
+                nhanDonHang();
                 break;
         }
 
+    }
+
+    private void nhanDonHang() {
+        databaseReference.child("ListOrder").child(intent.getStringExtra("idCustomer").toString()).
+                child(intent.getStringExtra("IDOrder").toString()).child("idShipper").setValue(firebaseUser.getUid().toString());
+        //lấy ra thông tin shipper
+        databaseReference.child("ListShipper").child(firebaseUser.getUid().toString()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Shipper shipper = dataSnapshot.getValue(Shipper.class);
+                databaseReference.child("ListOrder").child(intent.getStringExtra("idCustomer").toString()).
+                        child(intent.getStringExtra("IDOrder").toString()).
+                        child("Shipper").child(firebaseUser.getUid().toString()).setValue(shipper);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        Intent intent = new Intent(this,ActivityOrderOfCustomer.class);
+//        startActivity(intent);
+        Toast.makeText(this, "Bạn đã nhận đơn hàng thành công", Toast.LENGTH_SHORT).show();
     }
 
     private void redirectActivityMessage(String phoneCustomerInOrder) {

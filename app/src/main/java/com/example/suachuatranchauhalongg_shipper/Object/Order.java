@@ -12,6 +12,7 @@ public class Order {
     private String dateOrder;
     private int status;
     private boolean statusThanhToan;
+    private String idShiper;
 
     public Order()
     {
@@ -20,7 +21,7 @@ public class Order {
 
     public Order(String idOrder, String idOrderDetail, String idCustomer,
                  int mount, int price, int promotion, int priceShip,
-                 int totalPrice, String dateOrder, int status, boolean statusThanhToan) {
+                 int totalPrice, String dateOrder, int status, boolean statusThanhToan,String idShiper) {
         this.idOrder = idOrder;
         this.idOrderDetail = idOrderDetail;
         this.idCustomer = idCustomer;
@@ -32,6 +33,7 @@ public class Order {
         this.dateOrder = dateOrder;
         this.status = status;
         this.statusThanhToan = statusThanhToan;
+        this.idShiper = idShiper;
     }
 
     public String getIdOrder() {
@@ -120,5 +122,13 @@ public class Order {
 
     public void setStatusThanhToan(boolean statusThanhToan) {
         this.statusThanhToan = statusThanhToan;
+    }
+
+    public String getIdShiper() {
+        return idShiper;
+    }
+
+    public void setIdShiper(String idShiper) {
+        this.idShiper = idShiper;
     }
 }
