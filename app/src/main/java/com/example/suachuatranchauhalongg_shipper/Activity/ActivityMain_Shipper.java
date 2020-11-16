@@ -48,6 +48,7 @@ public class ActivityMain_Shipper extends AppCompatActivity {
     {
           toolbar = (Toolbar) findViewById(R.id.ActivityMainShipper_toolbar);
           setSupportActionBar(toolbar);
+          getSupportActionBar().setTitle("Hih");
           txtNameUserCurrent = (TextView) findViewById(R.id.ActivityMainShipper_txtNameUserCurrent);
           imageNotification = (ImageView) findViewById(R.id.ActivityMainShipper_imgNotification);
           drawerLayout = (DrawerLayout) findViewById(R.id.ActivityMainShipper_drawerLayout);

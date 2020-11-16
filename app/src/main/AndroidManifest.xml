@@ -20,10 +20,10 @@
         <activity android:name=".Activity.ActivityOrderDetail_Shipper" />
         <activity android:name=".Activity.Login_Shipper" />
         <activity android:name=".Activity.ActivityInformation_Shipper" />
-        <activity android:name=".Activity.ActivityMain_Shipper" />
+        <activity android:name=".Activity.OrderShipping_Shipper" />
         <activity android:name=".Activity.OrderShipped_Shipper" />
         <activity android:name=".Activity.Register_Shipper" />
-        <activity android:name=".Activity.OrderShipping_Shipper">
+        <activity android:name=".Activity.ActivityMain_Shipper">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

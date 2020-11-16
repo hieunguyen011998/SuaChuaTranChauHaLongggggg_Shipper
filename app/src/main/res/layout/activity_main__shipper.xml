@@ -12,6 +12,7 @@
         android:id="@+id/ActivityMainShipper_toolbar"
         android:layout_width="match_parent"
         android:background="#FAFBFC"
+        android:backgroundTint="#051A91"
         android:layout_height="?actionBarSize">
     </androidx.appcompat.widget.Toolbar>
        <LinearLayout
@@ -23,6 +24,7 @@
                android:id="@+id/ActivityMainShipper_txtNameUserCurrent"
                android:text="Name user"
                android:textSize="25sp"
+               android:textColor="#FFFFFF"
                android:layout_gravity="center"
                android:layout_width="wrap_content"
                android:layout_marginRight="15dp"
